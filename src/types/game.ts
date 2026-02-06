@@ -9,6 +9,7 @@ export interface GameRound {
   questionId: string;
   completed: boolean;
   correct: boolean;
+  blanksCount?: number; // For spelling rounds
 }
 
 export interface GameState {

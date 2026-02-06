@@ -38,13 +38,14 @@ export function useGameState() {
       questionIndex++;
     }
 
-    // Add spelling rounds
+    // Add spelling rounds (alternate between 1 and 2 blanks)
     for (let i = 0; i < SESSION_CONFIG.spellingRounds; i++) {
       rounds.push({
         type: 'zhuyinSpelling',
         questionId: questions[questionIndex]?.id || '',
         completed: false,
         correct: false,
+        blanksCount: i === 0 ? 1 : 2, // First round: 1 blank, second: 2 blanks
       });
       questionIndex++;
     }
