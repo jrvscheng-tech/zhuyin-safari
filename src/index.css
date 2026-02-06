@@ -2,95 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Ghibli-inspired Design System for Children's Zhuyin App */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Sky & Background - Soft Ghibli sky */
+    --background: 200 60% 96%;
+    --foreground: 220 20% 25%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Cards - Warm cream like old paper */
+    --card: 45 50% 97%;
+    --card-foreground: 220 20% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Primary - Warm sunset orange */
+    --primary: 25 95% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Secondary - Soft meadow green */
+    --secondary: 140 45% 75%;
+    --secondary-foreground: 140 40% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Cherry blossom pink */
+    --accent: 340 70% 85%;
+    --accent-foreground: 340 50% 30%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft cloud gray */
+    --muted: 210 30% 92%;
+    --muted-foreground: 220 15% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Game-specific colors */
+    --success: 140 60% 50%;
+    --success-foreground: 0 0% 100%;
+    --star-gold: 45 100% 55%;
+    --star-empty: 45 20% 85%;
+    
+    /* Zhuyin card colors */
+    --zhuyin-card: 45 60% 95%;
+    --zhuyin-card-hover: 45 70% 90%;
+    --zhuyin-target: 200 50% 92%;
+    --zhuyin-target-active: 200 60% 85%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(220 30% 50% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(220 30% 50% / 0.2);
+    --shadow-float: 0 12px 40px -10px hsl(220 30% 50% / 0.25);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Popover & Dialog */
+    --popover: 45 50% 97%;
+    --popover-foreground: 220 20% 25%;
 
-    --radius: 0.5rem;
+    --border: 210 30% 88%;
+    --input: 210 30% 88%;
+    --ring: 25 95% 60%;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Destructive */
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Sidebar (not used but required) */
+    --sidebar-background: 200 60% 96%;
+    --sidebar-foreground: 220 20% 25%;
+    --sidebar-primary: 25 95% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 340 70% 85%;
+    --sidebar-accent-foreground: 340 50% 30%;
+    --sidebar-border: 210 30% 88%;
+    --sidebar-ring: 25 95% 60%;
   }
 }
 
@@ -100,6 +79,180 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-nunito antialiased;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Ghibli-style floating clouds background */
+  .ghibli-bg {
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 80%, hsl(var(--accent) / 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 20%, hsl(var(--secondary) / 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse 100% 80% at 50% 100%, hsl(45 60% 95% / 0.5) 0%, transparent 60%),
+      linear-gradient(to bottom, hsl(200 70% 92%), hsl(200 50% 96%));
+  }
+
+  /* Playful card style */
+  .game-card {
+    @apply bg-card rounded-3xl shadow-card transition-all duration-300;
+    border: 3px solid hsl(var(--border));
+  }
+
+  .game-card:hover {
+    @apply shadow-float;
+    transform: translateY(-2px);
+  }
+
+  /* Zhuyin character styling */
+  .zhuyin-text {
+    @apply font-bold text-foreground;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  /* Draggable item */
+  .draggable-item {
+    @apply cursor-grab active:cursor-grabbing transition-transform duration-200;
+  }
+
+  .draggable-item:hover {
+    transform: scale(1.05);
+  }
+
+  .draggable-item.dragging {
+    @apply opacity-80 scale-110;
+    filter: drop-shadow(0 10px 20px hsl(220 30% 50% / 0.3));
+  }
+
+  /* Drop zone styling */
+  .drop-zone {
+    @apply border-4 border-dashed rounded-2xl transition-all duration-300;
+    border-color: hsl(var(--border));
+    background: hsl(var(--zhuyin-target));
+  }
+
+  .drop-zone.active {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--zhuyin-target-active));
+    transform: scale(1.02);
+  }
+
+  .drop-zone.correct {
+    border-color: hsl(var(--success));
+    background: hsl(var(--success) / 0.2);
+  }
+
+  /* Star animations */
+  .star-icon {
+    @apply transition-all duration-500;
+  }
+
+  .star-icon.filled {
+    color: hsl(var(--star-gold));
+    filter: drop-shadow(0 2px 8px hsl(var(--star-gold) / 0.5));
+  }
+
+  .star-icon.empty {
+    color: hsl(var(--star-empty));
+  }
+}
+
+@layer utilities {
+  /* Bounce animation for correct answers */
+  @keyframes bounce-success {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(0.95); }
+    75% { transform: scale(1.1); }
+  }
+
+  .animate-bounce-success {
+    animation: bounce-success 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Wiggle animation for incorrect */
+  @keyframes wiggle {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Sparkle animation */
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  /* Pop in animation */
+  @keyframes pop-in {
+    0% { transform: scale(0); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-pop-in {
+    animation: pop-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  /* Slide up animation */
+  @keyframes slide-up {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+  }
+
+  /* Confetti burst */
+  @keyframes confetti-fall {
+    0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  .animate-confetti {
+    animation: confetti-fall 3s ease-in forwards;
+  }
+
+  /* Shadow utilities */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+}
+
+/* Font family */
+.font-nunito {
+  font-family: 'Nunito', system-ui, sans-serif;
 }
