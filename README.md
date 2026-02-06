@@ -1,73 +1,83 @@
-# Welcome to your Lovable project
+# 注音大冒險 (Zhuyin Adventure)
 
-## Project info
+A beautiful, Ghibli-inspired Zhuyin (Bopomofo) learning web app designed for children aged 5-7.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## ✨ Features
 
-## How can I edit this code?
+- **Image Matching**: Drag and drop images to match with their correct Zhuyin pronunciation
+- **Zhuyin Spelling**: Fill in missing Zhuyin characters (coming soon)
+- **Zhuyin Sorting**: Reorder scrambled Zhuyin cards (coming soon)
+- **Kid-friendly UI**: Large touch targets, fun animations, and encouraging feedback
+- **No backend required**: Pure frontend, anonymous, in-memory state only
+- **Privacy-first**: No localStorage, cookies, or analytics
 
-There are several ways of editing your application.
+## 🎮 How to Play
 
-**Use Lovable**
+1. Click "開始遊戲" (Start Game) to begin
+2. **Image Matching**: Drag each picture to the matching Zhuyin box
+3. Complete all rounds to see your stars!
+4. Press "再玩一次" (Play Again) to restart
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ Development
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+
+- npm or bun
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Install dependencies
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install
+# or
+bun install
 ```
 
-**Edit a file directly in GitHub**
+### Start development server
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run dev
+# or
+bun dev
+```
 
-**Use GitHub Codespaces**
+### Build for production
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+# or
+bun run build
+```
 
-## What technologies are used for this project?
+### Deploy to GitHub Pages
 
-This project is built with:
+1. Update `vite.config.ts` with your repository name as base path
+2. Build the project
+3. Deploy the `dist` folder to GitHub Pages
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Project Structure
 
-## How can I deploy this project?
+```
+src/
+├── components/
+│   └── game/           # Game components
+├── data/
+│   └── questionBank.ts # Question data and utilities
+├── hooks/
+│   └── useGameState.ts # Game state management
+├── types/
+│   └── game.ts         # TypeScript types
+└── pages/
+    └── Index.tsx       # Main page
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🎨 Design
 
-## Can I connect a custom domain to my Lovable project?
+- **Theme**: Studio Ghibli-inspired, soft pastels
+- **Colors**: Sky blue backgrounds, warm cream cards, sunset orange accents
+- **Typography**: Nunito font family
+- **Animations**: Bounce, wiggle, float, and pop-in effects
 
-Yes, you can!
+## 📝 License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+MIT
