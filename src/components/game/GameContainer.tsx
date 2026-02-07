@@ -3,6 +3,7 @@ import { WelcomeScreen } from './WelcomeScreen';
 import { CompletionScreen } from './CompletionScreen';
 import { ImageMatching } from './ImageMatching';
 import { ZhuyinSpelling } from './ZhuyinSpelling';
+import { ZhuyinSorting } from './ZhuyinSorting';
 import { ProgressBar } from './ProgressBar';
 import { StarDisplay } from './StarDisplay';
 import { SESSION_CONFIG } from '@/types/game';
@@ -72,19 +73,11 @@ export function GameContainer() {
           />
         )}
 
-        {currentRound?.type === 'zhuyinSorting' && (
-          <div className="text-center p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">
-              注音排序遊戲
-            </h2>
-            <p className="text-muted-foreground">即將推出...</p>
-            <button 
-              onClick={() => completeRound(true)}
-              className="mt-4 px-6 py-3 bg-primary text-primary-foreground rounded-full"
-            >
-              跳過
-            </button>
-          </div>
+        {currentRound?.type === 'zhuyinSorting' && currentRound.questionId && (
+          <ZhuyinSorting
+            question={selectedQuestions.find(q => q.id === currentRound.questionId)!}
+            onComplete={(correct) => completeRound(correct)}
+          />
         )}
       </div>
     </div>
