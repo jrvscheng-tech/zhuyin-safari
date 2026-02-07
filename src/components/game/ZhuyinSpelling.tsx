@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useMemo } from 'react';
 import { Question, shuffleArray } from '@/data/questionBank';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
+import { playPickup, playDrop, playCorrect, playIncorrect } from '@/hooks/useSoundEffects';
 
 // All possible Zhuyin symbols for distractors
 const ALL_ZHUYIN = [
@@ -98,6 +99,7 @@ export function ZhuyinSpelling({ question, blanksCount, onComplete }: ZhuyinSpel
 
   const handleDragStart = useCallback((card: string) => {
     setDraggedCard(card);
+    playPickup();
   }, []);
 
   const handleDragEnd = useCallback(() => {
@@ -127,7 +129,10 @@ export function ZhuyinSpelling({ question, blanksCount, onComplete }: ZhuyinSpel
 
     // Remove card from available if correct
     if (isCorrect) {
+      playCorrect();
       setAvailableCards(prev => prev.filter(c => c !== draggedCard));
+    } else {
+      playIncorrect();
     }
 
     setDraggedCard(null);
