@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { Question, shuffleArray } from '@/data/questionBank';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
+import { playPickup, playDrop, playCorrect, playIncorrect } from '@/hooks/useSoundEffects';
 
 interface ImageMatchingProps {
   questions: Question[];
@@ -39,9 +40,9 @@ export function ImageMatching({ questions, onComplete }: ImageMatchingProps) {
   const handleDragStart = useCallback((e: React.DragEvent, questionId: string) => {
     setDraggedItem(questionId);
     e.dataTransfer.effectAllowed = 'move';
-    // Add custom drag image
     const target = e.target as HTMLElement;
     target.classList.add('dragging');
+    playPickup();
   }, []);
 
   const handleDragEnd = useCallback((e: React.DragEvent) => {
@@ -73,6 +74,7 @@ export function ImageMatching({ questions, onComplete }: ImageMatchingProps) {
     // Check if it's a correct match
     if (draggedItem === targetId) {
       // Correct match!
+      playCorrect();
       setMatches(prev => prev.map(m => 
         m.questionId === targetId 
           ? { ...m, matched: true, animating: true }
@@ -100,6 +102,7 @@ export function ImageMatching({ questions, onComplete }: ImageMatchingProps) {
       }, 800);
     } else {
       // Incorrect - trigger shake animation
+      playIncorrect();
       setIncorrectShake(draggedItem);
       setTimeout(() => setIncorrectShake(null), 500);
     }

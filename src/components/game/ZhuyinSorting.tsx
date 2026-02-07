@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useMemo } from 'react';
 import { Question, shuffleArray } from '@/data/questionBank';
 import { cn } from '@/lib/utils';
 import { Check, ArrowRight } from 'lucide-react';
+import { playPickup, playDrop, playCorrect, playIncorrect } from '@/hooks/useSoundEffects';
 
 // Get emoji for question
 function getEmoji(id: string): string {
@@ -55,12 +56,14 @@ export function ZhuyinSorting({ question, onComplete }: ZhuyinSortingProps) {
   const handlePoolDragStart = useCallback((index: number) => {
     setDraggedIndex(index);
     setDragSource('pool');
+    playPickup();
   }, []);
 
   // Drag from placed slots
   const handleSlotDragStart = useCallback((index: number) => {
     setDraggedIndex(index);
     setDragSource('slots');
+    playPickup();
   }, []);
 
   const handleDragEnd = useCallback(() => {
@@ -102,6 +105,7 @@ export function ZhuyinSorting({ question, onComplete }: ZhuyinSortingProps) {
       });
     }
 
+    playDrop();
     setDraggedIndex(null);
     setDragSource(null);
     setActiveSlot(null);
@@ -138,8 +142,10 @@ export function ZhuyinSorting({ question, onComplete }: ZhuyinSortingProps) {
     setIsCorrect(correct);
 
     if (correct) {
+      playCorrect();
       setTimeout(() => onComplete(true), 1200);
     } else {
+      playIncorrect();
       // Mark incorrect slots
       const wrong = new Set<number>();
       placedCards.forEach((card, i) => {
