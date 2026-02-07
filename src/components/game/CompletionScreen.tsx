@@ -72,21 +72,21 @@ export function CompletionScreen({
             className="mb-6"
           />
 
-          <div className="flex items-center justify-center gap-2 text-2xl font-bold text-foreground">
+          <div className="flex items-center justify-center gap-2 text-2xl font-bold text-foreground mb-6">
             <Heart className="w-6 h-6 text-accent fill-accent" />
             <span>{correctAnswers} / {totalQuestions} 答對</span>
           </div>
-        </div>
 
-        {/* Restart button */}
-        <Button
-          onClick={onRestart}
-          size="lg"
-          className="group px-10 py-7 text-xl font-bold rounded-full bg-secondary hover:bg-secondary/80 text-secondary-foreground shadow-card hover:shadow-float transition-all duration-300 hover:scale-105"
-        >
-          <RotateCcw className="w-6 h-6 mr-3 group-hover:rotate-[-180deg] transition-transform duration-500" />
-          再玩一次
-        </Button>
+          {/* Restart button */}
+          <Button
+            onClick={onRestart}
+            size="lg"
+            className="group px-10 py-7 text-xl font-bold rounded-full bg-secondary hover:bg-secondary/80 text-secondary-foreground shadow-card hover:shadow-float transition-all duration-300 hover:scale-105"
+          >
+            <RotateCcw className="w-6 h-6 mr-3 group-hover:rotate-[-180deg] transition-transform duration-500" />
+            再玩一次
+          </Button>
+        </div>
       </div>
     </div>
   );
